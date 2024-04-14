@@ -54,7 +54,7 @@ const ConnectWallet: React.FC = (): JSX.Element => {
       <div className="overflow-auto">
         <div className="flex justify-between items-end">
           <div className="flex flex-col gap-3 text-left">
-            <h1 className="text-3xl font-semibold">QUẢN LÝ NGUỒN HÀNG</h1>
+            <h1 className="text-3xl font-semibold">SOURCE MANAGEMENT</h1>
             <i className="text-[#2852a5]">
               No wallet connected. Connect wallet to show accounts and their ETH
               balances
@@ -96,7 +96,7 @@ const ConnectWallet: React.FC = (): JSX.Element => {
                 key: "location",
               },
               {
-                title: <div className="text-end">Hành động</div>,
+                title: <div className="text-end">Actions</div>,
                 fixed: "right",
                 className: "action-column",
                 render: (_, record: Order) => {
@@ -118,12 +118,20 @@ const ConnectWallet: React.FC = (): JSX.Element => {
               },
             ]}
             dataSource={[
+              
               {
-                trackingNumber: "001",
-                status: "Đang vận chuyển",
-                location: "Sài Gòn",
-                receiver: "abxyz",
+                trackingNumber: "002",
+                status: "Delivered",
+                location: "Sai Gon",
+                receiver: "Can Tho",
               },
+              {
+                trackingNumber: "003",
+                status: "Being transported",
+                location: "Tien Giang",
+                receiver: "Ca Mau",
+              },
+              
             ]}
           />
         </div>
@@ -149,7 +157,7 @@ const ConnectWallet: React.FC = (): JSX.Element => {
             ]}
             dataSource={[
               {
-                address: "0xabcxyj",
+                address: "0x4DF117d227396c294412A8269762B9605D4A1055",
                 ethBalance: "10000000",
               },
             ]}

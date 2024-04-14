@@ -6,7 +6,7 @@ module.exports = {
     edgechain: {
       provider: () => new HDWalletProvider(privateKey, "http://localhost:10002/"),
       network_id: "*",
-      chain_id: 10,
+      chain_id: 100,
     }
   },
   mocha: {
