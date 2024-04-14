@@ -16,3 +16,26 @@ code {
     monospace;
 }
 
+.App .ant-layout {
+  height: 100vh;
+}
+
+.btn-edit:hover {
+  background-color: rgb(231, 194, 85) !important;
+  border: 1px solid rgb(231, 194, 85) !important;
+  color: white !important;
+}
+
+.btn-create:hover {
+  background-color: rgb(50, 174, 96) !important;
+  border: 1px solid rgb(50, 174, 96) !important;
+  color: white !important;
+}
+
+.btn-watch:hover {
+  background-color: rgb(38, 127, 174) !important;
+  border: 1px solid rgb(38, 127, 174) !important;
+  color: white !important;
+}
+
+
