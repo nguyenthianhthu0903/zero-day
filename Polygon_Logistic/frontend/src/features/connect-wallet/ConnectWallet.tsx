@@ -7,10 +7,10 @@ import { Order } from "../../interfaces/order";
 import axios from "axios";
 
 const ConnectWallet: React.FC = (): JSX.Element => {
-  const [data, setData] = useState<Order[]>([]);
+  const [listData, setListData] = useState<Order[]>([]);
   const fetchData = () => {
     axios.get("http://localhost:8000/order").then((res) => {
-      setData(res?.data?.data);
+      setListData(res?.data?.data);
     });
   };
   useEffect(() => {
@@ -34,7 +34,6 @@ const ConnectWallet: React.FC = (): JSX.Element => {
         onClose={modalRef.current.closeModal}
         isRead={true}
         data={record}
-        fetchData={fetchData}
       />
     );
   };
@@ -42,7 +41,7 @@ const ConnectWallet: React.FC = (): JSX.Element => {
   const onCreate = () => {
     modalRef.current?.openModal(
       "Create Order",
-      <FormOrder onClose={modalRef.current.closeModal} />
+      <FormOrder onClose={modalRef.current.closeModal} fetchData={fetchData} />
     );
   };
   return (
@@ -98,23 +97,20 @@ const ConnectWallet: React.FC = (): JSX.Element => {
               {
                 title: "Tracking Number",
                 dataIndex: "trackingNumber",
-                key: "trackingNumber",
               },
               {
                 title: "Status",
                 dataIndex: "status",
-                key: "status",
               },
               {
                 title: "Location",
                 dataIndex: "location",
-                key: "location",
               },
               {
                 title: <div className="text-end">Actions</div>,
                 fixed: "right",
                 className: "action-column",
-                render: (_, record: Order) => {
+                render: (record) => {
                   return (
                     <div className="flex justify-end gap-3">
                       <Button
@@ -132,7 +128,7 @@ const ConnectWallet: React.FC = (): JSX.Element => {
                 },
               },
             ]}
-            dataSource={data}
+            dataSource={listData}
           />
         </div>
         <div className="mt-4 flex gap-3 flex-col">

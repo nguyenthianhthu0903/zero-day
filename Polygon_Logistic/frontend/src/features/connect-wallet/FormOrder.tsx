@@ -1,5 +1,5 @@
 import { Form, Input, Button, message } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import { Order } from "../../interfaces/order";
 import axios from "axios";
 import { useForm } from "antd/es/form/Form";
@@ -10,7 +10,15 @@ interface Props {
   fetchData?: () => void;
 }
 const FormOrder = ({ isRead, onClose, data, fetchData }: Props) => {
-  const onSave = (formBody: Order) => {
+  const [form] = useForm();
+  useEffect(() => {
+    console.log(data);
+    form.resetFields();
+    if (data) {
+      form.setFieldsValue(data);
+    }
+  }, [data]);
+  const onFinish = (formBody: Order) => {
     const api = data
       ? axios.patch("http://localhost:8000/order", { ...formBody })
       : axios.post("http://localhost:8000/order", { ...formBody });
@@ -19,17 +27,15 @@ const FormOrder = ({ isRead, onClose, data, fetchData }: Props) => {
         ? message.success("Update Success!")
         : message.success("Create Success!");
       onClose();
-      if (fetchData != undefined) {
-        fetchData();
-      }
+      if (fetchData) fetchData();
     });
   };
   return (
     <Form
       layout="vertical"
       disabled={isRead}
-      initialValues={{ ...data }}
-      onFinish={(formBody: Order) => onSave(formBody)}
+      onFinish={(value) => onFinish(value)}
+      form={form}
     >
       <Form.Item label="Tracking Number" name={"trackingNumber"}>
         <Input />
