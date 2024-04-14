@@ -1,15 +1,34 @@
-import { Table, Button, Image } from "antd";
-import React from "react";
-import { WalletOutlined, EditOutlined } from "@ant-design/icons";
+import { Table, Button, Image, Modal } from "antd";
+import React, { useRef } from "react";
+import { WalletOutlined, EditOutlined, EyeFilled } from "@ant-design/icons";
+import MyModal, { ModalRef } from "../../components/MyModal";
+import FormOrder from "./FormOrder";
 
 const ConnectWallet: React.FC = (): JSX.Element => {
+  const modalRef = useRef<ModalRef>(null);
   const onEdit = () => {
-    return;
+    modalRef.current?.openModal(
+      "Update Order",
+      <FormOrder onClose={modalRef.current.closeModal} />
+    );
+  };
+  const onWatch = () => {
+    modalRef.current?.openModal(
+      "Watch Order",
+      <FormOrder onClose={modalRef.current.closeModal} isRead={true} />
+    );
+  };
+
+  const onCreate = () => {
+    modalRef.current?.openModal(
+      "Create Order",
+      <FormOrder onClose={modalRef.current.closeModal} />
+    );
   };
   return (
-    <div className="h-full p-6 flex-col justify-items-start">
-      <div className="header-menu flex items-center justify-between">
-        <div className="flex items-center h-full justify-center">
+    <div className="h-full p-5 flex-col justify-items-start gap-4">
+      <div className="header-menu flex items-center justify-between py-5">
+        <div className="flex items-center">
           <Image
             src={require("../../images/logo.png")}
             preview={false}
@@ -35,8 +54,12 @@ const ConnectWallet: React.FC = (): JSX.Element => {
             balances
           </i>
         </div>
-        <Button className="bg-green-700" type="primary">
-          Tạo mới
+        <Button
+          className="bg-green-700"
+          type="primary"
+          onClick={() => onCreate()}
+        >
+          Create
         </Button>
       </div>
       <div className="mt-4">
@@ -63,11 +86,16 @@ const ConnectWallet: React.FC = (): JSX.Element => {
               className: "action-column",
               render: (_, record) => {
                 return (
-                  <div className="flex justify-end">
+                  <div className="flex justify-end gap-3">
                     <Button
                       className="bg-yellow-500"
                       icon={<EditOutlined />}
                       onClick={() => onEdit()}
+                    />
+                    <Button
+                      className="bg-blue-700"
+                      icon={<EyeFilled />}
+                      onClick={() => onWatch()}
                     />
                   </div>
                 );
@@ -83,6 +111,7 @@ const ConnectWallet: React.FC = (): JSX.Element => {
           ]}
         />
       </div>
+      <MyModal ref={modalRef} />
     </div>
   );
 };
