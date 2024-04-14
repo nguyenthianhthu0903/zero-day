@@ -1,16 +1,30 @@
 import { Table, Button, Image, Modal } from "antd";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { WalletOutlined, EditOutlined, EyeFilled } from "@ant-design/icons";
 import MyModal, { ModalRef } from "../../components/MyModal";
 import FormOrder from "./FormOrder";
 import { Order } from "../../interfaces/order";
+import axios from "axios";
 
 const ConnectWallet: React.FC = (): JSX.Element => {
+  const [data, setData] = useState<Order[]>([]);
+  const fetchData = () => {
+    axios.get("http://localhost:8000/order").then((res) => {
+      setData(res?.data?.data);
+    });
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   const modalRef = useRef<ModalRef>(null);
   const onEdit = (record: Order) => {
     modalRef.current?.openModal(
       "Update Order",
-      <FormOrder onClose={modalRef.current.closeModal} data={record} />
+      <FormOrder
+        onClose={modalRef.current.closeModal}
+        data={record}
+        fetchData={fetchData}
+      />
     );
   };
   const onWatch = (record: Order) => {
@@ -20,6 +34,7 @@ const ConnectWallet: React.FC = (): JSX.Element => {
         onClose={modalRef.current.closeModal}
         isRead={true}
         data={record}
+        fetchData={fetchData}
       />
     );
   };
@@ -117,14 +132,7 @@ const ConnectWallet: React.FC = (): JSX.Element => {
                 },
               },
             ]}
-            dataSource={[
-              {
-                trackingNumber: "001",
-                status: "Đang vận chuyển",
-                location: "Sài Gòn",
-                receiver: "abxyz",
-              },
-            ]}
+            dataSource={data}
           />
         </div>
         <div className="mt-4 flex gap-3 flex-col">
