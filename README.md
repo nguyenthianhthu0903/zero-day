@@ -20,7 +20,6 @@ Truffle:
 
     https://trufflesuite.com/truffle/
 
-![truffle](./public/truffle.png)
 
 Polygon-edge:
 
@@ -37,7 +36,6 @@ Polygon-edge:
     $ polygon-edge secrets init –data-dir test-chain-3
     $ polygon-edge secrets init –data-dir test-chain-4
 
-![Init](./public/2.png)
 
 - This will create a data directory for node one named “test-chain-1”.
 - Create parameters:
@@ -91,8 +89,6 @@ multiple times
     (format: \<address>:\<balance>)
     Default premined balance: 0xD3C21BCECCEDA1000000
 
-The complete command will look like:
-![Generating](./public/4.png)
 
 ## 5. Run all nodes
 
@@ -118,15 +114,11 @@ Flag explanation:
 
 ## 6. Connecting with metamask
 
-![check](./public/4.11.png "Check JSON-RPC")
+
 <p align="center">Check JSON-RPC</p>
 
-![add](./public/4.12.png "Add newwork in metamask")
 <p align="center">Add newwork in metamask</p>
 
-![import](./public/4.13.png "import account")
-![import](./public/4.14.png "import account")
-![import](./public/4.15.png "import account")
 <p align="center">import account (Node 1)</p>
 
 ## 7. Network Configuration
@@ -194,7 +186,6 @@ Next, we will run the compile and migrate commands to deploy the above smart con
 
 <p align="center">
 
-![compile](./public/4.21.png "compile contract")
 <p align="center">
 Compile contract
 </p>
@@ -202,7 +193,6 @@ Compile contract
 
 <p align="center">
 
-![Deploy](./public/4.22.png "Deploy contract")
 <p align="center">
 Deploy contract
 </p>
@@ -212,7 +202,7 @@ As we have seen, when deploying, there will be a contract address. We will take 
 
 <p align="center">
 
-![Import](./public/4.23.png "Import token")
+
 <p align="center">
 Import token
 </p>
@@ -220,7 +210,6 @@ Import token
 
 <p align="center">
 
-![Result](./public/4.24.png "Result")
 <p align="center">
 Result
 </p>
@@ -237,7 +226,6 @@ When we set environment variables and run loadbot, the result here:
 
 <p align="center">
 
-![Test network](./public/4.30.png "Test network")
 <p align="center">
 Test network
 </p>
@@ -245,7 +233,7 @@ Test network
 
 ## 10. Summary the results of building private custom blockchain
 
-![Summary](./public/4.29.png "Summary")
+
 
 ## 11. Deploy shipment smart contracts in simple logistics
 
@@ -311,7 +299,7 @@ Then, we run the command to deploy this contract:
 
 <p align="center">
 
-![deploy contract](./public/h31.png "deploy contract")
+
 <p align="center">
 Deploy Shipment Contract
 </p>
@@ -331,7 +319,7 @@ Next, access truffle’s console to test the smart contract:
 
 <p align="center">
 
-![localhost](./public/11.png "localhost")
+
 <p align="center">
 Run Localhost
 </p>
