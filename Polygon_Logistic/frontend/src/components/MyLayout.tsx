@@ -13,7 +13,7 @@ const MyLayout: React.FC = (): JSX.Element => {
         <Outlet />
       </Content>
 
-      <Footer className="bg-white">© Copyright 2024 by Zero-day</Footer>
+      <Footer className="bg-white py-2">© Copyright 2024 by Zero-day</Footer>
     </Layout>
   );
 };

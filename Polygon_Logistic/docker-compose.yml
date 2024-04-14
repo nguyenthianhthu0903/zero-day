@@ -1,0 +1,54 @@
+version: "3.9"
+services:
+
+  node-1:
+    image: 0xpolygon/polygon-edge:latest
+    working_dir: /root
+    user: 0:0
+    entrypoint: ""
+    command: "polygon-edge server --data-dir /root/chain --chain /root/genesis.json --grpc-address 0:0:0:0:10000 --libp2p 0:0:0:0:10001 --jsonrpc 0:0:0:0:10002 --seal"
+    volumes:
+      - ./genesis.json:/root/genesis.json
+      - ./test-chain-1:/root/chain
+    ports:
+      - 10002:10002
+
+  node-2:
+    image: 0xpolygon/polygon-edge:latest
+    working_dir: /root
+    user: 0:0
+    entrypoint: ""
+    command: "polygon-edge server --data-dir /root/chain --chain /root/genesis.json --grpc-address 0:0:0:0:20000 --libp2p 0:0:0:0:20001 --jsonrpc 0:0:0:0:20002 --seal"
+    volumes:
+      - ./genesis.json:/root/genesis.json
+      - ./test-chain-2:/root/chain
+    ports:
+      - 20002:20002
+
+  node-3:
+    image: 0xpolygon/polygon-edge:latest
+    working_dir: /root
+    user: 0:0
+    entrypoint: ""
+    command: "polygon-edge server --data-dir /root/chain --chain /root/genesis.json --grpc-address 0:0:0:0:30000 --libp2p 0:0:0:0:30001 --jsonrpc 0:0:0:0:30002 --seal"
+    volumes:
+      - ./genesis.json:/root/genesis.json
+      - ./test-chain-3:/root/chain
+    ports:
+      - 30002:30002
+
+  node-4:
+    image: 0xpolygon/polygon-edge:latest
+    working_dir: /root
+    user: 0:0
+    entrypoint: ""
+    command: "polygon-edge server --data-dir /root/chain --chain /root/genesis.json --grpc-address 0:0:0:0:40000 --libp2p 0:0:0:0:40001 --jsonrpc 0:0:0:0:40002 --seal"
+    volumes:
+      - ./genesis.json:/root/genesis.json
+      - ./test-chain-4:/root/chain
+    ports:
+      - 40002:40002
+
+networks:
+  default:
+    name: polygon-network

@@ -6,7 +6,7 @@ import "./homepage.css";
 const Homepage: React.FC = (): JSX.Element => {
   const history = useNavigate();
   return (
-    <div className="h-full content">
+    <div className="h-full content flex flex-col">
       <div className="header-menu flex items-center justify-center p-5">
         <Image
           src={require("../../images/logo.png")}

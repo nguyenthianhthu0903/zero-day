@@ -7,9 +7,9 @@ const ConnectWallet: React.FC = (): JSX.Element => {
     return;
   };
   return (
-    <div className="h-full p-4 flex-col justify-items-start">
-      <div className="header-menu flex items-center justify-between p-5">
-        <div className="flex items-center">
+    <div className="h-full p-6 flex-col justify-items-start">
+      <div className="header-menu flex items-center justify-between">
+        <div className="flex items-center h-full justify-center">
           <Image
             src={require("../../images/logo.png")}
             preview={false}
