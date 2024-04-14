@@ -10,7 +10,6 @@ interface Props {
   fetchData?: () => void;
 }
 const FormOrder = ({ isRead, onClose, data, fetchData }: Props) => {
-  const [form] = useForm();
   const onSave = (formBody: Order) => {
     const api = data
       ? axios.patch("http://localhost:8000/order", { ...formBody })
@@ -27,7 +26,6 @@ const FormOrder = ({ isRead, onClose, data, fetchData }: Props) => {
   };
   return (
     <Form
-      form={form}
       layout="vertical"
       disabled={isRead}
       initialValues={{ ...data }}
