@@ -78,7 +78,7 @@ The basic command to generate the genesis file:
       -premine<public_key_address>:1000000000000000000000
 
 
-## 6. Connecting with metamask
+## 6. UI/UX
 
 
 <img width="932" alt="Ảnh màn hình 2024-06-05 lúc 11 29 54" src="https://github.com/nguyenthianhthu0903/zero-day/assets/92707250/f50a0c4c-356d-4896-8cb6-23c67a6657f3">
