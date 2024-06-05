@@ -33,9 +33,6 @@ Polygon-edge:
 
     $ polygon-edge secrets init –data-dir test-chain-1
     $ polygon-edge secrets init –data-dir test-chain-2
-    $ polygon-edge secrets init –data-dir test-chain-3
-    $ polygon-edge secrets init –data-dir test-chain-4
-
 
 - This will create a data directory for node one named “test-chain-1”.
 - Create parameters:
@@ -55,16 +52,6 @@ Multiaddr format is as follows:
     "/ip4/<ip_address>/tcp/<port>/p2p/<node_id>"
 
 Here ip address is 127.0.0.1, and the port will be 10001 in the case of node 1. The node id is obtained while initializing the data directories.
-
-So the complete multiaddr string for **node 1** will look like:
-
-    "/ip4/127.0.0.1/tcp/10001/p2p/16Uiu2HAmGC5ywMrStiGSDqgWSg84Dn6Zfvy4HW
-    4ReR8ZXjSJ4KqJ"
-
-For **node 2**:
-
-    "/ip4/127.0.0.1/tcp/20001/p2p/16Uiu2HAmRzqp8TboUdDyp3xTJjKU2GHg1yz8iR
-    ujWvRzxY89qBq8"
 
 ## 4. Generating genesis file with all 4 nodes as validators and 2 nodes as bootnodes
 
